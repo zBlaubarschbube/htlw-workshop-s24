@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 import envUtil from './util/env.util';
 import { request } from 'http';
@@ -11,6 +12,10 @@ const app = express();
 
 //midleware parst json und fügt body ein
 app.use(express.json());
+
+//Durch die cors Middleware werden alle cors sachen akzeptiert
+app.use(cors());
+
 app.use("/", router);
 
 
